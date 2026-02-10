@@ -105,11 +105,6 @@ function M.get_file_path(file)
 		print("DefSave: Warning attempting to get a path for a nil file")
 		return nil
 	end
-	if M.sysinfo.system_name == "Linux" then
-		-- For Linux we must modify the default path to make Linux users happy
-		local appname = "config/" .. tostring(M.appname)
-		return sys.get_save_file(appname, file)
-	end
 	if html5 then
 		-- For HTML5 there's no need to get the full path
 		return M.appname .. "_" .. file
